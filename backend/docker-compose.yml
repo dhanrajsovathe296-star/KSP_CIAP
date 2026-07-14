@@ -1,0 +1,46 @@
+version: "3.9"
+
+# Full local stack: FastAPI backend + PostGIS + Neo4j.
+# `docker compose up` gives you a production-shaped environment on a laptop.
+# The backend still defaults to SQLite unless DATABASE_URL is set below —
+# uncomment it to point the API at the Postgres container instead.
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=${SECRET_KEY:-dev-secret-change-me-in-production}
+      - CORS_ORIGINS=${CORS_ORIGINS:-*}
+      # - DATABASE_URL=postgresql://ciap:ciap@postgres:5432/ciap
+    depends_on:
+      - postgres
+      - neo4j
+    restart: unless-stopped
+
+  postgres:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: ciap
+      POSTGRES_PASSWORD: ciap
+      POSTGRES_DB: ciap
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./schema_postgis.sql:/docker-entrypoint-initdb.d/01_schema.sql
+
+  neo4j:
+    image: neo4j:5.24-community
+    environment:
+      NEO4J_AUTH: neo4j/ciap_password
+    ports:
+      - "7474:7474" # browser UI
+      - "7687:7687" # bolt protocol
+    volumes:
+      - neo4jdata:/data
+
+volumes:
+  pgdata:
+  neo4jdata:
