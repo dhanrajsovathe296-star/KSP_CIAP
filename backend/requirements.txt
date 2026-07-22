@@ -5,15 +5,14 @@ python-jose[cryptography]==3.3.0
 python-multipart==0.0.9
 pydantic==2.9.2
 
-# --- Dev / test ---
 pytest==8.3.3
-httpx==0.27.2   # required by FastAPI's TestClient
+httpx==0.27.2   
 
-# --- Production extras (uncomment when moving off SQLite) ---
-psycopg2-binary==3.2.9      # Postgres driver
-# geoalchemy2==0.15.2         # PostGIS geometry columns
-# neo4j==5.24.0               # Graph driver for link analysis
-# scikit-learn==1.5.2         # IsolationForest anomaly detection
-# pandas==2.2.3                # Ingestion cleaning pipeline
-# apscheduler==3.10.4          # Scheduled risk-score recompute job
-# redis==5.0.8                 # Shared rate-limit / cache backend
+
+psycopg2-binary==3.2.9     
+# geoalchemy2==0.15.2        
+# neo4j==5.24.0              
+# scikit-learn==1.5.2        
+# pandas==2.2.3              
+# apscheduler==3.10.4        
+# redis==5.0.8               

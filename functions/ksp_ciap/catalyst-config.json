@@ -1,7 +1,7 @@
 {
     "deployment": {
         "name": "ksp_ciap",
-        "stack": "python313",
+        "stack": "python312",
         "type": "advancedio",
         "env_variables": {
             "SECRET_KEY": "KSP-CIAP_random_secretkey@49!123",
