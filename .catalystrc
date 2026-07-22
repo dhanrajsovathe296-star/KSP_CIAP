@@ -4,7 +4,7 @@
     "env": 1
   },
   "actives": {
-    "project": 1,
+    "project": 2,
     "env": 1
   },
   "projects": [
@@ -31,6 +31,24 @@
           },
           "is_default": true,
           "action_required": false
+        }
+      ]
+    },
+    {
+      "idx": 2,
+      "id": "49874000000031005",
+      "name": "KSP",
+      "domain": {
+        "id": "50044128770",
+        "name": "ksp-60078785152.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60078785152",
+          "name": "Development",
+          "type": 3
         }
       ]
     }

@@ -10,7 +10,7 @@ pytest==8.3.3
 httpx==0.27.2   # required by FastAPI's TestClient
 
 # --- Production extras (uncomment when moving off SQLite) ---
-psycopg2-binary==3.2.9      # Postgres driver
+# psycopg2-binary==2.9.9      # Postgres driver
 # geoalchemy2==0.15.2         # PostGIS geometry columns
 # neo4j==5.24.0               # Graph driver for link analysis
 # scikit-learn==1.5.2         # IsolationForest anomaly detection
